@@ -12,7 +12,7 @@
         </div>
       </div>
     </div>
-    <div key="2" v-on:click="hide()">
+    <div key="2" v-on:click="backHide(backgroundClose)">
       <VueBackdrop :visible="visible"></VueBackdrop>
     </div>
   </transition-group>
@@ -39,6 +39,10 @@
       buttons: {
         type: String,
         default: ''
+      },
+      backgroundClose: {
+        type: Boolean,
+        default: true
       }
     },
 
@@ -50,6 +54,11 @@
     methods: {
       hide(){
         this.close();
+      },
+      backHide(hasBack){
+        if (hasBack) {
+          this.close();
+        }
       }
     },
     computed: {},

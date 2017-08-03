@@ -34,6 +34,7 @@ let Alert = (content, header, options = {}) => {
     }
   }];
   instance.className = options.className || '';
+  instance.backgroundClose = typeof options.backgroundClose === 'boolean' ? options.backgroundClose : true;
 
   document.body.appendChild(instance.$el);
 

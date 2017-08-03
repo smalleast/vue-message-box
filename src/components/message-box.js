@@ -27,6 +27,7 @@ let Msgbox = (options = {}) => {
   instance.header = options.header || '';
   instance.buttons = options.buttons || '';
   instance.className = options.className || '';
+  instance.backgroundClose = typeof options.backgroundClose === 'boolean' ? options.backgroundClose : true;
 
   document.body.appendChild(instance.$el);
 

@@ -19,6 +19,7 @@
         MsgBox({
           header: '提示',
           content: '提示消息1',
+          backgroundClose: false,
           buttons: [{
             text: '确认',
             onClick: function (callback) {

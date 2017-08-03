@@ -20,7 +20,11 @@
       buttons: {
         type: String,
         default: ''
-      }
+      },
+             backgroundClose: {
+               type: Boolean,
+               default: true
+             }
     },
 ```
 
@@ -64,6 +68,7 @@ module.exports = {
           MsgBox({
             header: '提示',
             content: '提示消息1',
+            backgroundClose: false,
             buttons: [{
               text: '确认',
               onClick: function (callback) {
@@ -84,7 +89,8 @@ module.exports = {
             ok: '好的',
             okClick: function () {
               console.log('ok');
-            }
+            },
+            backgroundClose: false,
           });
         },
         _click3(){
