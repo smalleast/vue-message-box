@@ -1,11 +1,11 @@
 <template>
   <transition-group name="mint-msgbox-pop">
     <div class="mint-msgbox mint-msgbox-center" key="1" v-show="visible">
-      <div class="mint-msgbox-header">{{header}}</div>
-      <div class="mint-msgbox-content">{{content}}</div>
-      <div class="mint-msgbox-footer">
-        <div class="row row-no-padding">
-          <button class="col mint-msgbox-box" :class="{'left-hr':key>0}" v-on:click="item.onClick(hide)"
+      <div class="mint-msgbox-header" v-if="header" v-html="header">{{header}}</div>
+      <div class="mint-msgbox-content" v-html="content">{{content}}</div>
+      <div class="mint-msgbox-footer" v-if="buttons&&buttons.length>0">
+        <div class="btn-row">
+          <button class="btn-col mint-msgbox-box" :class="{'left-hr':key>0}" v-on:click="item.onClick(hide)"
                   v-for="(item,key) in buttons" key="key">
             {{item.text}}
           </button>
@@ -60,7 +60,6 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  @import '../../node_modules/flex-grid/dist/flex-grid.scss';
   .hr {
     position: relative;
     &:after {
@@ -154,4 +153,19 @@
     }
   }
 
+  .btn {
+    &-row {
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      width: 100%;
+    }
+    &-col {
+      -moz-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      display: block;
+      width: 100%;
+    }
+  }
 </style>
